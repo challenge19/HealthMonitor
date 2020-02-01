@@ -13,14 +13,20 @@ data_file = '../data/health.xlsx'
 figure_dir = '../figure/'
 
 df = pd.read_excel(data_file)
-df['date'] = pd.to_datetime(df['Date'])
+df['Date'] = pd.to_datetime(df['Date'])
+df.set_index('Date',inplace=True)
 # 绘制体温
 
 fig = plt.figure(figsize=(4,3))
 ax = plt.subplot(111)
 
-ax.plot(df['date'],df['Temp'],'o-',label='Temp')
-ax
+#ax.plot(df['date'],df['Temp'],'o-',label='Temp')
+df.plot(ls='-',marker='o',ax=ax)
 ax.set_ylim(35,40)
-ax.
+ax.axhline(y=37.3,color='k',ls='--')
+
+ax.set_xlabel('Date',fontsize=13)
+ax.set_ylabel('Temp',fontsize=13)
+
+plt.tight_layout()
 plt.savefig(f'{figure_dir}/temp.png',dpi=200)
