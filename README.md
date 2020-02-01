@@ -1,5 +1,6 @@
 # HealthMonitor
 
 
-![](./figure/temp.png)
-![](./figure/weight.png)
+![](./figure/temp.png?raw=true)
+
+![](./figure/weight.png?raw=true)
