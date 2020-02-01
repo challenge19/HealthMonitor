@@ -16,7 +16,7 @@ df = pd.read_excel(data_file,sheetname='temp')
 df['Date'] = pd.to_datetime(df['Date'])
 df.set_index('Date',inplace=True)
 # 绘制体温
-fig = plt.figure(figsize=(4,3))
+fig = plt.figure(figsize=(4,2.5))
 ax = plt.subplot(111)
 
 #ax.plot(df['date'],df['Temp'],'o-',label='Temp')
@@ -28,14 +28,14 @@ ax.set_xlabel('Date',fontsize=13)
 ax.set_ylabel('Temp',fontsize=13)
 
 plt.tight_layout()
-plt.savefig(f'{figure_dir}/temp.png',dpi=200)
+plt.savefig(f'{figure_dir}/temp.png',dpi=150)
 
 # 绘制体重
 df = pd.read_excel(data_file,sheetname='weight')
 df['Date'] = pd.to_datetime(df['Date'])
 df.set_index('Date',inplace=True)
 
-fig = plt.figure(figsize=(4,3))
+fig = plt.figure(figsize=(4,2.5))
 ax = plt.subplot(111)
 
 #ax.plot(df['date'],df['Temp'],'o-',label='Temp')
@@ -47,4 +47,4 @@ ax.set_xlabel('Date',fontsize=13)
 ax.set_ylabel('Weight',fontsize=13)
 
 plt.tight_layout()
-plt.savefig(f'{figure_dir}/weight.png',dpi=200)
+plt.savefig(f'{figure_dir}/weight.png',dpi=150)
