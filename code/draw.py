@@ -12,7 +12,7 @@ import matplotlib.pyplot as plt
 data_file = '../data/health.xlsx'
 figure_dir = '../figure/'
 
-df = pd.read_excel(data_file,sheetname='temp')
+df = pd.read_excel(data_file,sheet_name='temp')
 df['Date'] = pd.to_datetime(df['Date'])
 df.set_index('Date',inplace=True)
 # 绘制体温
@@ -26,12 +26,13 @@ ax.axhline(y=37.3,color='k',ls='--')
 
 ax.set_xlabel('Date',fontsize=13)
 ax.set_ylabel('Temp',fontsize=13)
+ax.legend(loc='upper left')
 
 plt.tight_layout()
 plt.savefig(f'{figure_dir}/temp.png',dpi=150)
 
 # 绘制体重
-df = pd.read_excel(data_file,sheetname='weight')
+df = pd.read_excel(data_file,sheet_name='weight')
 df['Date'] = pd.to_datetime(df['Date'])
 df.set_index('Date',inplace=True)
 
@@ -45,6 +46,6 @@ ax.axhline(y=140,color='k',ls='--')
 
 ax.set_xlabel('Date',fontsize=13)
 ax.set_ylabel('Weight',fontsize=13)
-
+ax.legend(loc='lower left')
 plt.tight_layout()
 plt.savefig(f'{figure_dir}/weight.png',dpi=150)
